@@ -127,11 +127,14 @@ img.onload = function() {
 source.init({ src: img, dynamic: false });};
 }
 window.initVid = function(source,url){
-var img = document.createElement('img');
-img.crossOrigin = "anonymous";
-img.src = url;
-img.onload = function() {
-source.init({ src: img, dynamic: true });};
+var vid = document.createElement('video');
+vid.crossOrigin = "anonymous";
+vid.autoplay = true;
+vid.loop = true;
+vid.muted = true;
+// vid.onload = function() { };
+vid.src = url;
+source.init({ src: vid });
 }
 //img funcs
 osc().constructor.prototype.correctScale = function(source){
